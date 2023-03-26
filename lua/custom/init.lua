@@ -12,6 +12,10 @@ local g = vim.g
 g.maplocalleader = " "
 opt.mouse = ""
 opt.undofile = false
+opt.timeoutlen = 500
+
+-- Numbers
+opt.numberwidth = 4
 
 -- Backup/swap file
 opt.backup = false -- creates a backup file

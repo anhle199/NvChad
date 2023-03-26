@@ -73,7 +73,7 @@ local specificConfigs = {
 
 for _, server_name in ipairs(servers) do
   if specificConfigs[server_name] then
-    lspconfig[server_name].setup(vim.tbl_deep_extend(generalConfigs, specificConfigs[server_name]))
+    lspconfig[server_name].setup(vim.tbl_deep_extend("force", generalConfigs, specificConfigs[server_name]))
   else
     lspconfig[server_name].setup(generalConfigs)
   end

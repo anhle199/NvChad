@@ -6,7 +6,6 @@ local highlights = require "custom.highlights"
 
 M.ui = {
   theme = "vscode_dark",
-  theme_toggle = { "vscode_dark", "one_light" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
@@ -18,6 +17,10 @@ M.ui = {
   statusline = {
     theme = "minimal",
     separator_style = "block",
+  },
+
+  tabufline = {
+    enabled = false,
   },
 }
 

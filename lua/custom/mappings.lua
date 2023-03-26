@@ -18,7 +18,6 @@ M.disabled = {
 
     -- line numbers
     ["<leader>n"] = "",
-    ["<leader>rn"] = "",
 
     -- new buffer
     ["<leader>b"] = "",
@@ -33,18 +32,14 @@ M.disabled = {
     ["<leader>ra"] = "", -- <leader>rn
     ["gr"] = "", -- <leader>rf
     ["<leader>f"] = "", -- <leader>d
-    ["<leader>q"] = "", -- <leader>D
-    ["<leader>fm"] = "", -- async = true
     ["<leader>wa"] = "",
     ["<leader>wr"] = "",
     ["<leader>wl"] = "",
 
     -- plugin: nvimtree
     ["<C-n>"] = "",
-    ["<leader>e"] = "",
 
     -- plugin: telescope
-    ["<leader>fh"] = "",
     ["<leader>fo"] = "",
     ["<leader>cm"] = "",
     ["<leader>gt"] = "",
@@ -71,7 +66,7 @@ M.disabled = {
     ["<A-i>"] = "",
     ["<A-h>"] = "",
     ["<A-v>"] = "",
-  }
+  },
 }
 
 M.general = {
@@ -103,7 +98,7 @@ M.general = {
     ["K"] = { ":move '<-2<cr>gv=gv", opts = default_opts },
 
     -- enable backspace
-    ["<BS>"] = { '"_d', opts = default_opts }
+    ["<BS>"] = { '"_d', opts = default_opts },
   },
 }
 
@@ -153,6 +148,26 @@ M.nvimtree = {
 
   n = {
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+  },
+}
+
+M.telescope = {
+  plugin = true,
+
+  n = {
+    ["<leader>fh"] = { "<cmd> Telescope find_files hidden=true <CR>", "find files with hidden" },
+    ["<leader>fi"] = { "<cmd> Telescope find_files no_ignore=true <CR>", "find files with ignore" },
+  },
+}
+
+M.bufferline = {
+  -- true => manually load mappings
+  -- false => automatically load (default) => improve perfomance
+  -- plugin = true,
+
+  n = {
+    ["<TAB>"] = { "<cmd> BufferLineCycleNext <CR>" },
+    ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>" },
   },
 }
 

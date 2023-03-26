@@ -7,7 +7,7 @@ end
 local b = null_ls.builtins
 
 local sources = {
-  -- webdev stuff
+  -- web dev stuff
   b.formatting.prettier,
   -- require("typescript.extensions.null-ls.code-actions"),
 
@@ -15,12 +15,12 @@ local sources = {
   b.formatting.stylua,
 
   -- python
-  -- b.formatting.black.with({ extra_args = { "--fast", "--line-length=120" } }),
-  -- b.formatting.isort.with({ extra_args = { "--style=black" } }),
+  b.formatting.black.with({ extra_args = { "--fast", "--line-length=120" } }),
+  b.formatting.isort.with({ extra_args = { "--style=black" } }),
   -- b.formatting.djlint,
   -- b.diagnostics.djlint,
-  -- b.diagnostics.flake8,
-  -- b.diagnostics.pylint,
+  b.diagnostics.flake8,
+  b.diagnostics.pylint,
 }
 
 null_ls.setup {
