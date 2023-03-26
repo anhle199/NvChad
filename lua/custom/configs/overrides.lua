@@ -45,9 +45,6 @@ M.mason = {
 -- git support in nvimtree
 M.nvimtree = {
   disable_netrw = true,
-  view = {
-    width = 36,
-  },
   git = {
     enable = true,
   },
