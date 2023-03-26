@@ -59,7 +59,6 @@ M.nvimtree = {
       show = {
         git = true,
       },
-      git_placement = "after",
     },
   },
   actions = {
