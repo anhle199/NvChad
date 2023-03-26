@@ -40,6 +40,7 @@ M.disabled = {
     ["<C-n>"] = "",
 
     -- plugin: telescope
+    ["<leader>fw"] = "",
     ["<leader>fo"] = "",
     ["<leader>cm"] = "",
     ["<leader>gt"] = "",
@@ -59,6 +60,14 @@ M.disabled = {
     -- plugin: gitsigns
     ["<leader>rh"] = "",
     ["<leader>td"] = "",
+
+    -- plugin: comment
+    ["<leader>/"] = "",
+  },
+
+  v = {
+    -- plugin: comment
+    ["<leader>/"] = "",
   },
 
   t = {
@@ -157,6 +166,8 @@ M.telescope = {
   n = {
     ["<leader>fh"] = { "<cmd> Telescope find_files hidden=true <CR>", "find files with hidden" },
     ["<leader>fi"] = { "<cmd> Telescope find_files no_ignore=true <CR>", "find files with ignore" },
+    ["<leader>fb"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>" },
+    ["<leader>fa"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
   },
 }
 
@@ -168,6 +179,26 @@ M.bufferline = {
   n = {
     ["<TAB>"] = { "<cmd> BufferLineCycleNext <CR>" },
     ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR>" },
+  },
+}
+
+M.comment = {
+  plugin = true,
+
+  n = {
+    ["gcc"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "toggle comment",
+    },
+  },
+
+  v = {
+    ["gcc"] = {
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      "toggle comment",
+    },
   },
 }
 
