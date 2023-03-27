@@ -15,7 +15,7 @@ vim.diagnostic.config {
 }
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "jsonls", "tsserver", "html", "cssls", "pyright" }
+local servers = { "jsonls", "html", "cssls", "pyright" }
 
 local generalConfigs = {
   on_attach = on_attach,
@@ -35,27 +35,6 @@ local specificConfigs = {
           enable = true,
         },
         validate = { enable = true },
-      },
-    },
-  },
-  tsserver = {
-    settings = {
-      completions = {
-        completeFunctionCalls = true,
-      },
-      typescript = {
-        format = {
-          enable = false,
-          insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
-        },
-        surveys = {
-          enabled = false,
-        },
-      },
-      javascript = {
-        format = {
-          enable = false,
-        },
       },
     },
   },
@@ -90,36 +69,27 @@ for _, server_name in ipairs(servers) do
   end
 end
 
--- lspconfig.tsserver.setup {
---   on_attach = function(client, bufnr)
---     on_attach(client, bufnr)
---     if client.name == "tsserver" then
---       vim.keymap.set(
---         "n",
---         "<leader>co",
---         "<cmd>TypescriptOrganizeImports<CR>",
---         { buffer = bufnr, desc = "Organize Imports" }
---       )
---     end
---   end,
---   capabilities = capabilities,
---   settings = {
---     completions = {
---       completeFunctionCalls = true,
---     },
---     typescript = {
---       format = {
---         enable = false,
---         insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
---       },
---       surveys = {
---         enabled = false,
---       },
---     },
---     javascript = {
---       format = {
---         enable = false,
---       },
---     },
---   },
--- }
+-- setup specific servers
+lspconfig.tsserver.setup {
+  on_attach = require("custom.configs.utils").tsserver_on_attach,
+  capabilities = capabilities,
+  settings = {
+    completions = {
+      completeFunctionCalls = true,
+    },
+    typescript = {
+      format = {
+        enable = false,
+        insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+      },
+      surveys = {
+        enabled = false,
+      },
+    },
+    javascript = {
+      format = {
+        enable = false,
+      },
+    },
+  },
+}

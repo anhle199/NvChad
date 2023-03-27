@@ -68,6 +68,15 @@ local plugins = {
     opts = require "custom.configs.bufferline",
   },
 
+  {
+    "jose-elias-alvarez/typescript.nvim",
+    lazy = true,
+    ft = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "tsx", "jsx" },
+    config = function()
+      require "custom.configs.typescript"
+    end,
+  },
+
   -- disable plugins
   { "folke/which-key.nvim", enabled = false },
   { "NvChad/nvterm", enabled = false },
