@@ -4,8 +4,8 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 vim.diagnostic.config {
-  underline = true,
-  update_in_insert = true,
+  underline = false,
+  update_in_insert = false,
   virtual_text = false,
   float = {
     focusable = true,
