@@ -3,6 +3,17 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
+vim.diagnostic.config {
+  underline = false,
+  update_in_insert = false,
+  virtual_text = false,
+  float = {
+    focusable = true,
+    style = "minimal",
+    border = "rounded",
+  },
+}
+
 -- if you just want default config for the servers then put them in a table
 local servers = { "jsonls", "tsserver", "html", "cssls", "pyright" }
 

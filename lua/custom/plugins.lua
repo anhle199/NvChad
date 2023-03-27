@@ -65,7 +65,7 @@ local plugins = {
     "akinsho/bufferline.nvim",
     lazy = true,
     event = "TabEnter",
-    opts = require("custom.configs.bufferline"),
+    opts = require "custom.configs.bufferline",
   },
 
   -- disable plugins
