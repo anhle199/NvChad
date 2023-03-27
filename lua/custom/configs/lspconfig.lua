@@ -85,6 +85,9 @@ lspconfig.tsserver.setup {
       surveys = {
         enabled = false,
       },
+      tsserver = {
+        maxTsServerMemory = 512,
+      },
     },
     javascript = {
       format = {
