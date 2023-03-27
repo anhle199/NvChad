@@ -4,8 +4,8 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 vim.diagnostic.config {
-  underline = false,
-  update_in_insert = false,
+  underline = true,
+  update_in_insert = true,
   virtual_text = false,
   float = {
     focusable = true,
@@ -89,3 +89,37 @@ for _, server_name in ipairs(servers) do
     lspconfig[server_name].setup(generalConfigs)
   end
 end
+
+-- lspconfig.tsserver.setup {
+--   on_attach = function(client, bufnr)
+--     on_attach(client, bufnr)
+--     if client.name == "tsserver" then
+--       vim.keymap.set(
+--         "n",
+--         "<leader>co",
+--         "<cmd>TypescriptOrganizeImports<CR>",
+--         { buffer = bufnr, desc = "Organize Imports" }
+--       )
+--     end
+--   end,
+--   capabilities = capabilities,
+--   settings = {
+--     completions = {
+--       completeFunctionCalls = true,
+--     },
+--     typescript = {
+--       format = {
+--         enable = false,
+--         insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+--       },
+--       surveys = {
+--         enabled = false,
+--       },
+--     },
+--     javascript = {
+--       format = {
+--         enable = false,
+--       },
+--     },
+--   },
+-- }

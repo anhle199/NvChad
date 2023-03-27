@@ -113,4 +113,21 @@ M.lazy_load = function(plugin)
   })
 end
 
+M.format = function(opts)
+  local buf = vim.api.nvim_get_current_buf()
+  local ft = vim.bo[buf].filetype
+  local have_nls = #require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") > 0
+
+  local formatting_opts = {
+    bufnr = buf,
+    filter = function(client)
+      if have_nls then
+        return client.name == "null-ls"
+      end
+      return client.name ~= "null-ls"
+    end,
+  }
+  vim.lsp.buf.format(vim.tbl_deep_extend("force", formatting_opts, opts))
+end
+
 return M
