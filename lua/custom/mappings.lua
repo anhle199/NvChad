@@ -35,6 +35,7 @@ M.disabled = {
     ["<leader>wa"] = "",
     ["<leader>wr"] = "",
     ["<leader>wl"] = "",
+    ["<leader>fm"] = "",
 
     -- plugin: nvimtree
     ["<C-n>"] = "",
@@ -143,7 +144,7 @@ M.lspconfig = {
       "diagnostic setloclist",
     },
 
-    ["<leader>fm"] = {
+    ["<leader>m"] = {
       function()
         require("core.utils").format { async = false }
       end,

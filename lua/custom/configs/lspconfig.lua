@@ -86,7 +86,7 @@ lspconfig.tsserver.setup {
         enabled = false,
       },
       tsserver = {
-        maxTsServerMemory = 512,
+        maxTsServerMemory = 256,
       },
     },
     javascript = {

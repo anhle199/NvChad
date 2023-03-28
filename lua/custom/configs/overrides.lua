@@ -72,8 +72,10 @@ M.telescope = {
     prompt_prefix = " 󰍉 ",
     selection_caret = " ",
     file_ignore_patterns = { "node_modules", "dist", "__pycache__", "build" },
+    sorting_strategy = "descending",
     layout_config = {
       horizontal = {
+        prompt_position = "bottom",
         preview_width = 0.6,
       },
       width = 0.9,
